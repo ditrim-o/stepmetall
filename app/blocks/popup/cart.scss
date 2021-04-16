@@ -1,0 +1,148 @@
+.cart{
+    position: fixed;
+    right: 0px;
+    top:0px;
+    background-color: white;
+    z-index: 10;
+    width: 860px;
+    padding: 39px 0 222px 0;
+    box-sizing: border-box;
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 115px 16px 80px;
+        border-bottom: 1px solid #C4C4C4;
+    }
+    &__close{
+        width: 40px;
+        height: 40px;
+    }
+    &__header{
+        font-size: 50px;
+        line-height: 68px;
+    }
+    &__goods{
+        padding: 50px 57px 50px 80px;
+    }
+    &__goods-list{
+        display: grid;
+        row-gap: 66px;
+    }
+    &__goods-item{
+        display: flex;
+        align-items: baseline;
+    }
+    &__good-num{
+        font-size: 32px;
+        font-weight: bold;
+        //line-height: 43px;
+        margin-right: 22px;
+    }
+    &__present-img{
+        background-color: yellowgreen;
+    }
+    &__good-category{
+        font-size: 20px;
+        font-weight: bold;
+        //line-height: 26px;
+        margin-right: 27px;
+    }
+    &__good-name{
+        font-size: 20px;
+        font-weight: 300;
+        //line-height: 26px;
+    }
+  
+    &__quantity{
+        margin-left: auto;
+        position: relative;
+        display: flex;
+    }
+    &__quantity-input{
+        height: 38px;
+        width: 91px;
+        font-size: 20px;
+        font-weight: 300;
+        border: 1px solid #B4B4B4;
+        padding-left: 28px;
+        margin-left: auto;
+        box-sizing: border-box;
+    }
+    &__quantity-input::-webkit-inner-spin-button,
+    &__quantity-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+
+    &__quantity-input{
+    -moz-appearance: textfield;
+    }
+    &__quantity-input:focus{
+        border: 1px solid black;
+    }
+    &__quantity-more,  &__quantity-less{
+        height: 18px;
+        width: 29px;
+        position: absolute;
+        right: 1px;
+        background-color: white;
+        &:before{
+            content:'';
+            position: absolute;
+            height: 5px;
+            width: 5px;
+            display: block;
+            border-left: 1px solid #0561FC;
+            border-top: 1px solid #0561FC;
+            left: 12px;
+        }
+
+        &:hover{
+            background-color: #0561FC;
+            &:before{
+                border-color: white;
+            }
+        }
+    }
+    &__quantity-more{        
+        top: 1px;
+        &:before{
+            transform: rotate(45deg) ;
+            top:8px;
+        }
+    } 
+    &__quantity-less{
+        
+        bottom: 1px;
+        &:before{
+            transform: rotate(225deg) ;
+            bottom:8px;
+        }
+    }
+    &__quantity-type{
+        font-size: 11px;
+        font-weight: 400;
+        color: #727272;
+        position: absolute;
+        left: 0px;
+        bottom: -20px;
+        
+
+    }
+    &__delete{
+        width: 27px;
+        height: 27px;
+        margin-left: 20px;
+        align-self: center;
+
+        & .close-icon:before{
+            width: 1px;
+        }
+        & .close-icon:after{
+            height: 1px;
+        }
+    }
+} 

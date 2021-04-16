@@ -1,0 +1,272 @@
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+body {
+line-height: 1;
+font-family: 'Ubuntu' ,Arial,sans-serif,;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+:focus {
+outline: 0;
+}
+ins {
+text-decoration: none;
+}
+del {
+text-decoration: line-through;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+a, a:hover{
+    text-decoration: none;
+}
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.eot');
+    src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
+        url('../fonts/Ubuntu-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-Regular.woff') format('woff'),
+        url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Light.eot');
+    src: local('Ubuntu Light'), local('Ubuntu-Light'),
+        url('../fonts/Ubuntu-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-Light.woff') format('woff'),
+        url('../fonts/Ubuntu-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-LightItalic.eot');
+    src: local('Ubuntu Light Italic'), local('Ubuntu-LightItalic'),
+        url('../fonts/Ubuntu-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-LightItalic.woff') format('woff'),
+        url('../fonts/Ubuntu-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Medium.eot');
+    src: local('Ubuntu Medium'), local('Ubuntu-Medium'),
+        url('../fonts/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-Medium.woff') format('woff'),
+        url('../fonts/Ubuntu-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Italic.eot');
+    src: local('Ubuntu Italic'), local('Ubuntu-Italic'),
+        url('../fonts/Ubuntu-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-Italic.woff') format('woff'),
+        url('../fonts/Ubuntu-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Bold.eot');
+    src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
+        url('../fonts/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-Bold.woff') format('woff'),
+        url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-BoldItalic.eot');
+    src: local('Ubuntu Bold Italic'), local('Ubuntu-BoldItalic'),
+        url('../fonts/Ubuntu-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-BoldItalic.woff') format('woff'),
+        url('../fonts/Ubuntu-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-MediumItalic.eot');
+    src: local('Ubuntu Medium Italic'), local('Ubuntu-MediumItalic'),
+        url('../fonts/Ubuntu-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ubuntu-MediumItalic.woff') format('woff'),
+        url('../fonts/Ubuntu-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+.clr_blue{
+    color: #0561FC;
+}
+.clr_black{
+    color:#000000;
+}
+.clr_red{
+    color:#EC002A;
+}
+.clr_dark-grey{
+    color:#727272;
+}
+.clr_grey{
+    color:#C0C0C0;
+}
+.clr_light-grey{
+    color:#F6F6F6;
+}
+.bg_blue{
+    background-color: #0561FC;
+    color: white;
+    transition: .3s;
+
+    &:hover{
+        background-color: black;
+        box-shadow: none;
+    }
+}
+body{
+    background-color: #F6F6F6;
+    max-width: 100%;
+    width: 100%;
+}
+button{
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+.h1{
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+    line-height: 57px;
+}
+.close-icon{
+    position: relative;
+   transform: rotate(45deg);
+   height: 100%;
+   width: 100%;
+   display: block;
+
+    &:before{
+        content: "";
+        background-color: black;
+        height: 100%;
+        width: 3px;
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+        transform: translate(-50%, 0);
+    }
+    &:after{
+        content:"";
+        background-color: black;
+        width: 100%;
+        height: 3px;
+        display: block;
+        position: absolute;
+        left: 0px;
+        bottom: 50%;
+        transform: translate(0, 50%);
+    }
+
+}
+.container{
+    padding-left: 327px;
+    padding-right: 80px;
+}
+.full{
+    height: calc(100vh - 118px);
+    overflow: hidden;
+}
+@media (max-width: 1360px){
+.full{
+    height: calc(100vh - 79px);
+
+}
+}
+@media (max-width: 768px), (max-height: 700px){
+    .full{
+        height: auto;
+        padding-bottom: 100px;
+    }
+    }
+@media(max-width:1600px){
+    .container{
+        padding-left: 276px;
+    }
+}
+@media(max-width:1280px){
+    .container {
+        padding-left: 244px;
+    }
+}
+@media(max-width:1024px){
+    .container {
+        padding-left: 222px;
+    }
+
+}
+@media (max-width: 900px){
+.container {
+    padding-left: 187px;}
+}
+@media (max-width: 768px){
+    .container {
+        padding-left: 29px;}
+    }
+@media(max-width:575px){
+    .container{
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+}
+@media(max-width:340px){
+    .container{
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+}
+@import "../blocks/header/header.scss";
+@import "../blocks/footer/footer.scss";
+@import "../blocks/menu-left/menu-left.scss";
+@import "../blocks/main/main.scss";
+@import "../blocks/popup/cart.scss";

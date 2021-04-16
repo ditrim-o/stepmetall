@@ -1,0 +1,206 @@
+h1{
+    color:rgb(80, 22, 187);
+}
+.menu-l{
+    position: fixed;
+    width: 225px;
+    background: #FFFFFF;
+    box-shadow: -4px 4px 29px rgba(0, 0, 0, 0.25);
+    left: 0px;
+    top:0px;
+    max-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 49px;
+    z-index: 10;
+
+    &__link{
+        padding-left:40px;
+        padding-top: 51px;
+        padding-bottom: 45px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+
+
+    }
+    &__link:hover{
+        background-color: #F6F6F6;
+    }
+    &__links-item:nth-child(2) &__link{
+        padding-top: 67px;
+        padding-bottom: 57px;
+    }
+    &__links-text{
+        font-size: 16px;
+        line-height: 137.4%;        
+        color: #000000;
+        font-weight: 700;
+    }
+    &__links-img{
+        margin-right: 14px;
+    }
+    &__quastion-link{
+        font-size: 16px;
+        line-height: 137.4%;
+        color: #727272;
+        font-weight: 400;
+        padding-bottom: 49px;
+        padding-top: 33px;
+        padding-left: 29px;
+        display: flex;
+        align-items: center;
+    }
+    & .hr{
+        width: 135px;
+        height: 1px;
+        background-color: #DBDBDB;
+        margin-left: 36px;
+
+    }
+    &__quastion-icon{
+        margin-right: 10px;
+    }
+
+}
+.logo{
+    padding-left: 40px;
+}
+.menu-l__links-img, .menu-l__quastion-icon{
+    height: 36px;
+    width: 36px;
+}
+
+@media(max-width:1600px){
+    .menu-l{
+        width: 202px;
+        padding-top: 45px;
+        & .hr{
+            width: 121px;
+        }
+        &__link{
+            padding-left:35px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        &__links-item:nth-child(2) &__link{
+            padding-top: 60px;
+            padding-bottom: 57px;
+        }
+    }
+    .logo{
+        padding-left: 35px;
+    }
+    .logo-img{
+        width: 114px;
+    }
+    .menu-l__links-img, .menu-l__quastion-icon{
+        height: 26px;
+        width: 26px;
+    }
+    
+}
+@media(max-width:1280px){
+
+    .menu-l{
+        width: 162px;
+        padding-top: 36px;
+        & .hr{
+            width: 97px;
+            margin-left: 25px;
+        }
+        &__link{
+            padding-left:25px;
+            padding-top: 40px;
+            padding-bottom: 32px;
+        }
+        &__links-item:nth-child(2) &__link{
+            padding-top: 51px;
+            padding-bottom: 45px;
+        }
+        &__quastion-link{
+            padding-bottom: 30px;
+            padding-top: 25px;
+            padding-left: 21px;
+            font-size: 14px;
+    
+        }
+        &__quastion-icon{
+            margin-right: 8px;
+        }
+        &__links-text{
+            font-size: 14px;
+        }
+    }    
+    .logo{
+        padding-left: 28px;
+    }
+    .logo-img{
+        width: 92px;
+    }
+    .menu-l__links-img, .menu-l__quastion-icon{
+        height: 26px;
+        width: 26px;
+    }
+    .menu-l__links-img {
+        margin-right: 10px;
+    }
+
+}
+@media(max-width:1024px){
+    
+}
+@media(max-width:768px){
+    .menu-l .logo{
+        display: none;
+    }
+    .menu-l__quastion{
+        display: none;
+    }
+    .menu-l{
+        width: 100%;
+        height: 98px;
+        bottom: 0px;
+        top: auto;
+        background-color: #E3E3E3;
+        border-radius: 30px 30px 0px 0px;
+        padding-top: 0px;
+    }
+    .menu-l__links{
+        display: flex;
+        justify-content: space-around;
+        padding-left: 44px;
+        padding-right: 22px;
+    }
+    .menu-l__link{
+        flex-direction: column;
+        padding: 0 20px;
+        height: 98px;
+        justify-content: center;
+    }
+    .menu-l__links-item:nth-child(2) .menu-l__link{
+        padding: 0 20px;
+    }
+    .menu-l__links-img, .menu-l__quastion-icon{
+        height: 27px;
+        width: 27px;
+        margin: 0 auto;
+    }
+    .menu-l__links-text{
+        font-size: 12px;
+        color: #0561FC;
+    }
+    .menu-l__link:hover{
+        background-color: transparent;
+    }
+}
+@media(max-width:375px){
+    .menu-l__links{
+        padding-left: 27px;
+        padding-right: 7px;
+    }
+}
