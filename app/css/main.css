@@ -2204,7 +2204,8 @@ h1 {
 .service__header {
   font-size: 80px;
   line-height: 90px;
-  color: black; }
+  color: black;
+  margin-bottom: 40px; }
 
 .service__container {
   display: -webkit-box;
