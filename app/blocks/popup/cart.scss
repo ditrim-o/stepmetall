@@ -1,12 +1,18 @@
 .cart{
     position: fixed;
-    right: 0px;
+    right: -1000px;
     top:0px;
     background-color: white;
     z-index: 10;
     width: 860px;
-    padding: 39px 0 222px 0;
+    padding: 39px 0 100px 0;
     box-sizing: border-box;
+    max-height: 100vh;
+    overflow-y: scroll;
+    transition: .4s;
+    &.active{
+        right: 0px;
+    }
     &__top{
         display: flex;
         justify-content: space-between;
@@ -17,6 +23,7 @@
     &__close{
         width: 40px;
         height: 40px;
+        flex-shrink: 0;
     }
     &__header{
         font-size: 50px;
@@ -24,6 +31,7 @@
     }
     &__goods{
         padding: 50px 57px 50px 80px;
+        border-bottom: 1px solid #C4C4C4;
     }
     &__goods-list{
         display: grid;
@@ -51,7 +59,7 @@
     &__good-name{
         font-size: 20px;
         font-weight: 300;
-        //line-height: 26px;
+        margin-right: 10px;
     }
   
     &__quantity{
@@ -65,9 +73,11 @@
         font-size: 20px;
         font-weight: 300;
         border: 1px solid #B4B4B4;
-        padding-left: 28px;
+        //padding-left: 28px;
         margin-left: auto;
         box-sizing: border-box;
+        padding-right: 30px;
+        text-align: center;
     }
     &__quantity-input::-webkit-inner-spin-button,
     &__quantity-input::-webkit-outer-spin-button {
@@ -137,6 +147,7 @@
         height: 27px;
         margin-left: 20px;
         align-self: center;
+        flex-shrink: 0;
 
         & .close-icon:before{
             width: 1px;
@@ -145,4 +156,302 @@
             height: 1px;
         }
     }
+    &__present{
+        padding-right:35px;
+        height: 34px;
+        background: #F6F6F6;
+        border-radius: 61px;
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+    &__present-img{
+        width: 34px;
+        height: 34px;
+        background-color: #0561FC;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-right: 9px;
+        flex-shrink: 0;
+    }
+    &__present-ico{
+        width: 14px;
+        height: 15px;
+    }
+
+    &__send-calc{
+        padding: 41px 129px 52px 81px;
+        border-bottom: 1px solid #C4C4C4;
+    }
+    &__send-calc-header{
+        font-size: 24px;
+        line-height: 33px;
+        margin-bottom: 24px;
+    }
+    &__form-input-row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 27px;
+        margin-bottom: 23px;
+    }
+    &__delivery{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 29px;
+    }
+    &__delivery-method{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 12px;
+    }
+    &__delivery-text{
+        font-size: 12px;
+        font-weight: 300;
+    }
+    &__delivery-radio{
+        display: none;
+    }
+    // #radio-delivery1+label{
+    //     margin-right: 12px;
+    // }
+    &__delivery-radio+label{
+        font-size: 20px;
+        font-weight: 500;
+        text-decoration: underline;
+        color:#0561FC;
+        height: 42px;
+        background-color: #F6F6F6;
+        border-radius: 33px;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover{
+            background-color: #0561FC;
+            color: white;
+        }
+
+
+    }
+    &__delivery-radio:checked+label{
+        background-color: black;
+        color: white;
+    }
+    &__send-btn{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-shadow: 0px 35px 43px -22px rgba(5, 97, 252, 0.4);
+        border-radius: 45px;
+        height: 70px;
+        justify-content: space-around;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 38px;
+    }
+    &__policy{
+        font-size: 11px;
+        font-weight: 400;
+        color:#727272;
+
+    }
+    &__save{
+        padding: 49px 105px 0 81px;
+    }
+    &__save-header{
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 28px;
+    }
+    &__save-fields{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 52px;
+    }
+    &__save-btn{
+        font-weight: 500;
+        font-size: 16px;
+        box-shadow: 0px 36px 43px -17px rgba(5, 97, 252, 0.4);
+        border-radius: 45px;
+    }
+    &__logo{
+        display: none;
+    }
 } 
+
+@media(max-width:1600px){
+    .cart{
+        width: 808px;
+        padding: 58px 0;
+        &__top{
+            padding: 0 30px 27px 68px;
+        }
+        &__header{
+            font-size: 40px;
+            line-height: 54px;
+        }
+        &__goods{
+            padding: 50px 35px 50px 68px;
+        }
+        &__send-calc{
+            padding: 41px 88px 50px 68px;
+        }
+        &__save{
+            padding: 49px 88px 0 81px;
+        }
+    }
+}
+@media(max-width:1024px){
+    .cart{
+        width: 768px;
+        padding: 20px 0 58px;
+        &__top{
+            padding: 0 30px 20px 30px;
+        }
+        &__goods{
+            padding: 50px 28px 50px 30px;
+        }
+        &__send-calc{
+            padding: 41px 88px 50px 30px;
+        }
+        &__save{
+            padding: 49px 64px 0 30px;
+        }
+    }
+}
+@media(max-width:768px){
+    .cart{
+        width: 100%;
+
+        &__delivery-method{
+            display: grid;
+            grid-template-columns: 1fr;
+            column-gap: 0;
+            row-gap: 12px;
+        }
+    }
+    .cart__delivery-radio + label{
+        justify-content: space-around;
+    }
+}
+@media(max-width:580px){
+    .cart{
+        padding: 20px 0 58px;
+        &__top{
+            padding: 0 20px 20px 20px;
+        }
+        &__goods{
+            padding: 20px 20px 30px 20px;
+        }
+        &__send-calc{
+            padding: 30px 20px 40px 20px;
+        }
+        &__save{
+            padding: 30px 20px 0 20px;
+        }
+        &__delivery{
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &__delivery-text{
+            margin-bottom: 13px;
+        }
+        &__send-calc-header, &__save-header{
+            font-size: 20px;
+            line-height: 27px;
+        }
+    }
+    .cart__delivery-radio + label{
+        justify-self: left;
+    }
+}
+@media(max-width:478px){
+    .cart__present{
+        height: 63px;
+    }
+    .cart__present-img{
+        height: 63px;
+        width: 63px;
+    }
+    .cart__present-ico{
+        width: 26px;
+        height: 28px;
+    }
+    .cart__save-fields{
+        grid-template-columns: 1fr;
+    }
+    .cart__save-btn{
+        height: 50px;
+        margin-top: 20px;
+    }
+    .cart__goods-item{
+        display: grid;
+        grid-template-columns: 40px auto auto;
+    }
+    .cart__good-category{
+        grid-column: 2/3;
+        margin-bottom: 16px;
+    }
+    .cart__good-name{
+        grid-column: 2/3;
+        margin-bottom: 19px
+       
+    }
+    .cart__quantity{
+        grid-column: 2/3;
+        margin-left: 0px;
+        justify-self: left;
+    }
+    .cart__quantity-input{
+        margin-left: 0px;
+    }
+    .cart__delete{
+        grid-row: 1/4;
+        grid-column: 3/3;
+        justify-self: right;
+    }
+    .cart__quantity-type{
+        bottom: -13px;
+    }
+    .cart__good-num+.cart__present{
+        grid-column: 2/4;
+    }
+    .cart__present{
+        grid-column: 1/4;
+    }
+    .cart__goods-list{
+        row-gap: 35px;
+    }
+    .cart__form-input-row{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    .cart__present{
+        padding-right: 13px;
+    }
+}
+@media(max-width:375px){
+    .cart__top{
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .cart__logo{
+        display: block;
+        order: 1;
+    }
+    .cart__close{
+        order: 2;
+    }
+    .cart__header{
+        order: 3;
+        width: 100%;
+        margin-top: 36px;
+    }
+    
+}

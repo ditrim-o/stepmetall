@@ -16,6 +16,7 @@ outline: 0;
 font-size: 100%;
 vertical-align: baseline;
 background: transparent;
+font-family: "Ubuntu", Arial, sans-serif;
 }
 body {
 line-height: 1;
@@ -169,12 +170,44 @@ button{
     background: none;
     padding: 0;
     cursor: pointer;
+    font-family: "Ubuntu", Arial, sans-serif;
 }
 .h1{
     font-size: 50px;
     font-weight: bold;
     color: black;
     line-height: 57px;
+}
+.d-flex{
+    display: flex;
+}
+.form-input{
+    display: flex;
+    flex-direction: column;
+}
+.input-label{
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 9px;
+}
+.input{
+    background-color: #F6F6F6;
+    padding: 0 14px;
+    height: 44px;
+    border: none;
+    border-bottom: 2px solid  #C4C4C4;;
+    font-size: 14px;
+}
+.input:focus{
+    border-bottom: 2px solid #000000;
+}
+.input::placeholder{
+    font-size: 14px;
+    font-weight: 300;
+    color: #C4C4C4;
+}
+.noscroll{
+    overflow: hidden;
 }
 .close-icon{
     position: relative;
@@ -207,6 +240,20 @@ button{
     }
 
 }
+.page-bg{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    & img{
+        
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+
+    }
+}
 .container{
     padding-left: 327px;
     padding-right: 80px;
@@ -221,11 +268,17 @@ button{
 
 }
 }
-@media (max-width: 768px), (max-height: 700px){
+@media (max-width: 768px){
     .full{
         height: auto;
+        min-height: calc(100vh - 165px);
         padding-bottom: 100px;
     }
+    }
+    @media(max-height:700px){
+        .full{height: auto;
+            min-height: calc(100vh - 78px);}
+        
     }
 @media(max-width:1600px){
     .container{
@@ -265,8 +318,28 @@ button{
 
     }
 }
+
+.breadcrumbs{
+    &__link{
+        font-size: 16px;
+        font-weight: 400;
+        color:#C4C4C4;
+        margin-right: 11px;
+        position:relative;
+        &:after{
+            content:"→";
+            margin-left: 9px;
+        }
+    }
+    &__item:last-child &__link:after{
+        display: none;
+    }
+}
 @import "../blocks/header/header.scss";
 @import "../blocks/footer/footer.scss";
 @import "../blocks/menu-left/menu-left.scss";
 @import "../blocks/main/main.scss";
 @import "../blocks/popup/cart.scss";
+@import "../blocks/popup/menu.scss";
+@import "../blocks/services/services.scss";
+@import "../blocks/single-service/service.scss";

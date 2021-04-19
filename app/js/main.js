@@ -32,7 +32,7 @@ function sliders() {
 
     sliderShowHide(900, 375, mainCarousel, mainCarouselSettings, initCar);
 }
-
+/*удаляем или добавляем слайдер в зависимости от разрешения*/
 function sliderShowHide(sizeMax, sizeMin, slider, settings, init) {
 
     window.addEventListener('resize', () => {
@@ -57,8 +57,50 @@ function sliderShowHide(sizeMax, sizeMin, slider, settings, init) {
 
 }
 
+
+/*popup-menu-cart hide/show*/
+
+function cartMenuHideShow(el, close, open) {
+    let body = document.querySelector('body');
+    let item = document.querySelector(el);
+    body.addEventListener('click', (e) => {
+
+        if (e.target.closest(open)) {
+            item.classList.add('active');
+            scrollHide('hide')
+        }
+
+        else if (e.target.closest(close) || (!e.target.closest(el) && item.classList.contains('active'))) {
+            item.classList.remove('active');
+            scrollHide('show');
+        }
+
+    });
+}
+/*hide page scroll*/
+function scrollHide(inf) {
+    var html = document.getElementsByTagName('html')[0];
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (inf == 'hide') {
+        html.classList.add('noscroll');
+        html.style.paddingRight = scrollbarWidth + "px";
+    }
+    else if (inf == 'show') {
+        html.classList.remove('noscroll');
+        html.style.paddingRight = 0;
+    }
+    else {
+        html.classList.remove('noscroll');
+        html.style.paddingRight = 0;
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     sliders();
+
+    cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
+    cartMenuHideShow('.cart', '.cart__close', '.header__cart');
 });
 
 

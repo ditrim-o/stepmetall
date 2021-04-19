@@ -66,11 +66,15 @@
     }
     &__cart{
         margin-left: 68px;
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        flex-shrink: 0;
     }
     &__cart-icon{
         height: 45px;
         width: 45px;
-        color:black;
+        
     }
     &__popup-menu-open{
         cursor: pointer;

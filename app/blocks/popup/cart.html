@@ -1,7 +1,10 @@
-<div class="cart" style="display:none;">
+<div class="cart">
     <div class="cart__top">
+        <div class="cart__logo">
+            <img src="img/logo.svg" alt="logo" class="header__logo-img">
+        </div>
         <h2 class="cart__header">Оформление заявки</h2>
-        <button class="cart__close">
+        <button class="cart__close" type="button">
             <span class="close-icon"></span>
         </button>
     </div>
@@ -13,10 +16,10 @@
                     <span class="cart__good-category">Арматура</span>
                     <span class="cart__good-name">6А400С длина 6м</span>
                     <div class="cart__quantity">
-                        <input type="test" class="cart__quantity-input" value="1*">
+                        <input type="test" class="cart__quantity-input" value="1">
                         <button class="cart__quantity-more" type="button"></button>
                         <button class="cart__quantity-less" type="button"></button>
-                        <span class="cart__quantity-type">*тонн</span>
+                        <span class="cart__quantity-type">тонн</span>
                     </div>
                     <button class="cart__delete">
                         <span class="close-icon"></span>
@@ -30,7 +33,7 @@
                         <input type="number" class="cart__quantity-input" value="1">
                         <button class="cart__quantity-more" type="button"></button>
                         <button class="cart__quantity-less" type="button"></button>
-                        <span class="cart__quantity-type">*тонн</span>
+                        <span class="cart__quantity-type">тонн</span>
                     </div>
                     <button class="cart__delete">
                         <span class="close-icon"></span>
@@ -44,7 +47,7 @@
                         <input type="number" class="cart__quantity-input" value="1">
                         <button class="cart__quantity-more" type="button"></button>
                         <button class="cart__quantity-less" type="button"></button>
-                        <span class="cart__quantity-type">*тонн</span>
+                        <span class="cart__quantity-type">тонн</span>
                     </div>
                     <button class="cart__delete">
                         <span class="close-icon"></span>
@@ -54,34 +57,37 @@
                     <span class="cart__good-num">4.</span>
                     <div class="cart__present">
                         <div class="cart__present-img">
-                            <svg class="cart__present-img">
+                            <svg class="cart__present-ico">
                                 <use xlink:href="img/sprite/sprite.svg#gift"></use>
                             </svg>
                         </div>
                         <p class="cart__present-text">Ваш <span class="clr_blue">подарок!</span></p>
                     </div>
                 </li>
+                <li class="cart__goods-item">
+                    <div class="cart__present">
+                        <div class="cart__present-img">
+                            <svg class="cart__present-ico">
+                                <use xlink:href="img/sprite/sprite.svg#gift"></use>
+                            </svg>
+                        </div>
+                        <p class="cart__present-text">Добавьте в корзину ещё одну позицию и получите <span
+                                class="clr_blue">подарок!</span></p>
+                    </div>
+                </li>
             </ul>
         </div>
-        <div class="cart__present">
-            <div class="cart__present-img">
-                <svg class="cart__present-img">
-                    <use xlink:href="img/sprite/sprite.svg#gift"></use>
-                </svg>
-            </div>
-            <p class="cart__present-text">Добавьте в корзину ещё одну позицию и получите <span
-                    class="clr_blue">подарок!</span></p>
-        </div>
+
         <div class="cart__send-calc">
             <h2 class="cart__send-calc-header">Все верно?<br>
                 Тогда отправьте свой номер телефона и мы оформим доствку на выгодных условиях</h2>
             <div class="form-input__row cart__form-input-row">
                 <div class="form-input cart__form-input">
-                    <label class="imput-label">Имя</label>
+                    <label class="input-label">Имя</label>
                     <input type="text" class="input cart__input" placeholder="Имя">
                 </div>
                 <div class="form-input cart__form-input">
-                    <label class="imput-label">Телефон</label>
+                    <label class="input-label">Телефон</label>
                     <input type="text" class="input cart__input" placeholder="Ваш телефон">
                 </div>
             </div>
@@ -91,11 +97,10 @@
                     <input type="radio" class="cart__delivery-radio" id='radio-delivery1' name="rad-delivery"
                         value="Доставка">
                     <label for="radio-delivery1">Доставка</label>
-                </div>
-                <div class="cart__delivery-method">
+
                     <input type="radio" class="cart__delivery-radio" id='radio-delivery2' name="rad-delivery"
                         value="Самовывоз со склада">
-                    <label for="radio-delivery1">Самовывоз со склада</label>
+                    <label for="radio-delivery2">Самовывоз со склада</label>
                 </div>
             </div>
             <button class="cart__send-btn bg_blue" type="submit">Отправить на рассчет</button>

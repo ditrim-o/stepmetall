@@ -1,0 +1,106 @@
+.service{
+    &__content{
+        height: 100%;
+        z-index: 2;
+    }
+    &__header{
+        font-size: 80px;
+        line-height: 90px;
+        color:black;
+    }
+    &__container{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    &__top{
+        justify-content: space-around;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+    }
+    &__text{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+        color:#727272;
+        max-width: 630px;
+    }
+    &__form-hedaer{
+        font-size: 16px;
+        margin-bottom: 22px;
+    }
+    &__form-row{
+        display: grid;
+        grid-template-columns: 226px 226px 350px 205px;
+        column-gap: 13px;
+        align-items: flex-end;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #C4C4C4;
+        width: max-content;
+    }
+    &__form-input input{
+        background-color: white;
+    }
+    &__btn{
+        color:white;
+        background-color: #C4C4C4;
+        box-shadow: 0px 35px 43px -22px rgba(153, 153, 153, 0.4);
+        border-radius: 45px;
+        height: 50px;
+        margin-left: 10px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    &__another-list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 3px;
+        max-width: 1257px;
+    }
+    &__another{
+        z-index: 2;
+        padding-bottom: 40px;
+    }
+    &__another-header{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 22px;
+    }
+    &__another-item{
+        background-color: #0C59DB;
+        position: relative;
+        padding: 63px 43px 59px;
+        &:nth-child(2n){
+            background-color:  #4483EF;
+        }
+    }
+    &__another-link{
+        font-size: 14px;
+    text-decoration: underline;
+    font-weight: 400;
+    align-items: center;
+    color: white;
+    position: absolute;
+    top: 29px;
+    right: 33px;
+    }
+    &__another-link-icon{
+        width: 21px;
+        height: 14px;
+        margin-left: 12px;
+    }
+    &__another-icon{
+        width: 18px;
+        height: 18px;
+        margin-bottom: 15px;
+    }
+    &__another-item-header{
+        font-size: 22px;
+        line-height: 25px;
+        font-weight: 500;
+        color:white;
+        max-width: 177px;
+    }
+}
