@@ -118,15 +118,16 @@ function showQuastions() {
 }
 function createMap() {
 
-    var mymap = L.map('map').setView([59.88459106422066, 30.326728499999998], 13);
+    var mymap = L.map('map').setView([59.88459106422066, 30.326728499999998], 14);
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         center: [59.88459106422066, 30.326728499999998],
         maxZoom: 18,
         id: 'mapbox/streets-v11',
         accessToken: 'pk.eyJ1Ijoib3Bhc255aSIsImEiOiJja25xMzFiNXcwOHd4MnBwZnd5bGcyZzcyIn0.AiEs2-wubAmpJzeGQvqIaQ',
-        layers: [grayscale]
+
     }).addTo(mymap);
+    L.marker([59.88459106422066, 30.326728499999998]).addTo(mymap);
 
 
 }
