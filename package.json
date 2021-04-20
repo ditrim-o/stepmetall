@@ -25,6 +25,7 @@
     "imagemin-pngquant": "^9.0.2"
   },
   "dependencies": {
+    "leaflet": "^1.7.1",
     "owl.carousel": "^2.3.4"
   }
 }

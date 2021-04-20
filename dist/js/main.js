@@ -95,12 +95,47 @@ function scrollHide(inf) {
     }
 }
 
+function showQuastions() {
+    let body = document.querySelector('body');
+    let items = document.querySelectorAll('.questions__item');
+    let form = document.querySelector('.questions__form-fields');
 
+    body.addEventListener('click', (e) => {
+        if (e.target.closest('.questions__item-header')) {
+            question = e.target.closest('.questions__item');
+            items.forEach(item => {
+                if (item == question) {
+                    item.classList.toggle('active');
+                }
+                else item.classList.remove('active');
+
+            });
+        }
+
+
+    });
+
+}
+function createMap() {
+
+    var mymap = L.map('map').setView([59.88459106422066, 30.326728499999998], 13);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        center: [59.88459106422066, 30.326728499999998],
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        accessToken: 'pk.eyJ1Ijoib3Bhc255aSIsImEiOiJja25xMzFiNXcwOHd4MnBwZnd5bGcyZzcyIn0.AiEs2-wubAmpJzeGQvqIaQ',
+        layers: [grayscale]
+    }).addTo(mymap);
+
+
+}
 document.addEventListener('DOMContentLoaded', () => {
     sliders();
-
     cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
     cartMenuHideShow('.cart', '.cart__close', '.header__cart');
+    showQuastions();
+    createMap();
 });
 
 
