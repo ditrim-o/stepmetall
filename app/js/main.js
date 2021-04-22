@@ -116,20 +116,126 @@ function showQuastions() {
     });
 
 }
+
 function createMap() {
+    if (document.querySelector('#map')) {
+        var mymap = L.map('map').setView([59.88459106422066, 30.326728499999998], 17);
 
-    var mymap = L.map('map').setView([59.88459106422066, 30.326728499999998], 14);
+        let layer = L.tileLayer.grayscale('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            center: [59.88459106422066, 30.326728499999998],
+            maxZoom: 20,
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        center: [59.88459106422066, 30.326728499999998],
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        accessToken: 'pk.eyJ1Ijoib3Bhc255aSIsImEiOiJja25xMzFiNXcwOHd4MnBwZnd5bGcyZzcyIn0.AiEs2-wubAmpJzeGQvqIaQ',
+        });
+        mymap.addLayer(layer)
 
-    }).addTo(mymap);
-    L.marker([59.88459106422066, 30.326728499999998]).addTo(mymap);
+        const customIcon = L.divIcon({
+            className: 'contacts__map-icon',
+            iconSize: 62
+        });
+        L.marker([59.88459106422066, 30.326728499999998], { icon: customIcon }).addTo(mymap);
+    }
+}
+
+/*fixed-sidebar*/
+function sidebarFix() {
+    let goods = document.querySelector('.fix-scroll-js');
+    if (goods) {
+        let winHeight = window.innerHeight;
+        let bar = goods.querySelector('.fixed-js');
+        let barClass = "";
+
+        fix();
+        window.addEventListener('scroll', function () {
+            fix();
+        });
+
+        function fix() {
+            if (window.innerWidth > 1024) {
+
+                let top = goods.getBoundingClientRect().top;
+                let bottom = goods.getBoundingClientRect().bottom;
+                let barTop = bar.getBoundingClientRect().top;
+                let barBottom = bar.getBoundingClientRect().bottom;
+
+                if (top >= barTop && top >= 0 && barBottom >= winHeight) {
+                    if (barClass != "top") {
+                        bar.classList.add('top');
+                        bar.classList.remove('bottom');
+                        bar.classList.remove('fixed');
+                        barClass = "top"
+                    }
+                    else {
+                        return;
+                    }
+
+                }
+                else if (bottom <= winHeight) {
+                    if (barClass != 'bottom') {
+                        bar.classList.add('bottom');
+                        bar.classList.remove('top');
+                        bar.classList.remove('fixed');
+                        barClass = "bottom"
+                    }
+                    else return;
+
+                }
+                else if (barBottom <= winHeight || barClass == 'bottom') {
+                    if (barClass != 'fixed') {
+                        bar.classList.add('fixed');
+                        bar.classList.remove('top');
+                        bar.classList.remove('bottom');
+                        barClass = 'fixed';
+                    }
+                    else return
+
+                }
+                // else {
+                //     if (barClass != 'fixed') {
+                //         bar.classList.add('fixed');
+                //         bar.classList.remove('top');
+                //         bar.classList.remove('bottom');
+                //         barClass = 'fixed';
+                //         console.log('fixed');
+                //     }
+                //     else return
+                // }
+
+            }  //console.log(top, bottom);
+        }
+    }
 
 
+
+}
+/* goods form open*/
+function formOpen() {
+    let btn = document.querySelector('.sidebar__open-fields');
+    let fields = document.querySelector('.sidebar__fields');
+    if (btn && fields) {
+        btn.addEventListener('click', () => {
+            fields.classList.add('active');
+            sidebarFix();
+        });
+    }
+}
+/*goods open*/
+function goodsOpen() {
+    let goods = document.querySelector('.goods__list');
+    if (goods) {
+        goods.addEventListener('click', (e) => {
+            if (e.target.closest(".goods__item-header")) {
+                let item = e.target.closest('.goods__item');
+                item.classList.toggle('active');
+                sidebarFix();
+            }
+        });
+    }
+}
+
+function goodAddCart() {
+    // document.querySelector('.goods__add-btn').onclick = function () {
+    //     this.classList.toggle('added');
+    // }
 }
 document.addEventListener('DOMContentLoaded', () => {
     sliders();
@@ -137,6 +243,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cartMenuHideShow('.cart', '.cart__close', '.header__cart');
     showQuastions();
     createMap();
+    sidebarFix();
+    formOpen();
+    goodsOpen();
+    goodAddCart();
 });
 
 

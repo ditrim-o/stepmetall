@@ -1,0 +1,273 @@
+.goods{
+    &__container{
+        position: relative;
+        padding-top: 28px;
+    }
+    &__content{
+        display: grid;
+        grid-template-columns: auto 430px;
+        column-gap: 70px;
+        margin-bottom: 76px;
+    }
+    &__bg{
+        position: absolute;
+        top:0px;
+        right: 0px;
+        z-index: -1;
+    }
+    &__header{
+        font-size: 50px;
+        line-height: 68px;
+        font-weight: 700;
+        margin-bottom: 45px;
+        margin-top: 16px;
+        color:black;
+    }
+    &__add-icon{
+        stroke: #727272;
+        height: 26px;
+        width: 26px;
+    }
+    &__item-header{
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 44px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-top: 36px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #C4C4C4;
+
+        &:after{
+            content:"";
+            background-color: black;
+            height: 27px;
+            width: 27px;
+            background-image: url(../img/svg/arr-goods.svg);
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            background-position: center;
+            right: 0px;
+            position: absolute;
+            transform: rotate(-90deg);
+            transition: .3s;
+        }
+    }
+    &__item.active &__item-header:after{
+        transform: rotate(0deg);
+    }
+ 
+    &__sub-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        transition: .4s;
+        position: relative;
+        height: 0px;
+        overflow: hidden;
+        opacity: 0;
+        padding-right: 40px;
+        
+        //padding-right: 40px;
+        transform: scale3d(1, 0, 1);
+        &:before{
+            content:"";
+            transition: .2s;
+            content:"";
+            position: absolute;
+            height: 100%;
+            width: calc(100% + 200px);
+            right: 0px;
+            top: 0px;
+            z-index: -1;
+        }
+        &:hover:before{
+            
+           
+            background-color: #0561FC;
+            
+        }
+        &:hover  .goods__add-btn:before,  &:hover  .goods__add-btn:after{
+            background-color: white;
+        }
+        &:hover .goods__sub-title{
+            color:white;
+        }
+    }
+    &__item.active &__sub-item{
+        padding-top: 36px;
+        padding-bottom: 36px;
+        height: auto;
+        opacity: 1;
+        overflow: visible;
+        border-bottom: 1px solid #C4C4C4;
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+        
+        
+    }
+    &__sub-title{
+        font-size: 20px;
+        font-weight: 300;
+    }
+    &__add-btn {
+        width: 26px;
+        height: 26px;
+    }
+    &__add-btn.added:before{
+        left: 100%;
+        transform: translate(0, 0);
+    }
+    &__add-btn.added:after{
+            width: 50%;
+            left: auto;
+            right: 0px;
+            bottom: 0%;
+            transform: translate(0, 0);
+    }
+    &__add-btn.added.plus-icon{
+        transform: rotate(45deg);
+    }
+    &__banner{
+        position: relative;
+        padding-top: 30px;
+        padding-bottom: 45px;
+        background-image: url(../img/spec-bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat; 
+        //padding-left: 160px;       
+    }
+    &__container_spec{
+        padding-top: 0px;
+    }
+    &__header-spec{
+        font-size: 50px;
+        color:white;
+        font-weight: 700;
+        line-height: 68px;
+        margin: 15px 0;
+    }
+    &__subheader{
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 37px;
+        color: white;
+        max-width: 630px;
+    }
+    &__utp{
+        color:white;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 35px;
+        &:before{
+            content:"";
+            background-image: url(../img/svg/quote.svg);
+            height: 20px;
+            width: 24px;
+            display: inline-block;
+            margin-right: 14px;
+
+        }
+    }
+    &__banner-container{
+        padding-right: 0px;
+    }
+}
+@media(max-width:1600px){
+    .goods{
+        &__header{
+            font-size: 40px;
+            margin-top: 14px;
+            margin-bottom: 10px;
+           
+            
+        }
+        &__content{
+            grid-template-columns: auto 380px;
+        }
+    }
+}
+@media(max-width:1280px){
+    .goods{
+        &__container{
+            padding-right: 40px;
+        }
+        &__content{
+            grid-template-columns: auto 330px;
+        }
+        &__bg{
+            height: 204px;
+            width: 278px;
+        }
+        &__banner{
+            padding-right: 10px;
+        }
+    }
+}
+@media(max-width:1024px){
+    .goods{
+        &__container{
+            padding-right: 29px;
+        }
+        &__list{
+            max-width: 592px;
+        }
+        &__content{
+            grid-template-columns: auto;
+            margin-bottom: 45px;
+        }
+        &__sub-item{
+            padding-right: 20px;
+        }
+    }
+}
+@media(max-width:768px){
+    .goods{
+        &__container{
+            padding-top: 0px;
+        }
+        &__header{
+            line-height: 54px;
+            margin-top: 40px;
+        }
+        &__bg{
+            display: none;
+        }
+        &__list{
+            max-width: 100%;
+        }
+    }
+}
+@media(max-width:575px){
+    .goods{
+        &__container{
+            padding-right: 20px;
+        }
+        &__item-header{
+            font-size: 22px;
+            padding-top: 25px;
+            padding-bottom: 20px;
+            line-height: 30px;
+            padding-right: 30px;
+
+        }
+        &__item.active &__sub-item{
+            padding-top: 28px;
+            padding-bottom: 24px;
+        }
+        &__utp{
+            font-size: 22px;
+        }
+    }
+}
+@media(max-width:340px){
+    .goods{
+        &__container{
+            padding-right: 10px;
+        }
+    }
+}

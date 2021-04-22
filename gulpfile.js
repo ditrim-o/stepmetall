@@ -58,7 +58,8 @@ gulp.task('scripts', function () {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/jquery/dist/jquery.min.js',
         'app/libs/owl.carousel/dist/owl.carousel.min.js', // Берем jQuery
-        'app/libs/leaflet/leaflet.js'
+        'app/libs/leaflet/leaflet.js',
+        'app/libs/leaflet/grayscale.js'
 
     ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
