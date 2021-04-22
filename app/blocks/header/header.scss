@@ -5,6 +5,8 @@
     padding-top: 34px;
     align-items: center;
     position: relative;
+    transition: .3s;
+
     &:after{
         content: "";
         height: 1px;

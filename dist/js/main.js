@@ -232,6 +232,18 @@ function goodsOpen() {
     }
 }
 
+
+/*animate*/
+
+function animate() {
+    let animBlocks = document.querySelectorAll('.animate');
+
+    animBlocks.forEach(item => {
+        item.classList.remove('animate');
+    });
+}
+
+
 function goodAddCart() {
     // document.querySelector('.goods__add-btn').onclick = function () {
     //     this.classList.toggle('added');
@@ -247,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formOpen();
     goodsOpen();
     goodAddCart();
+    animate();
 });
 
 
