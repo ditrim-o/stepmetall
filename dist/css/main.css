@@ -3732,13 +3732,18 @@ h1 {
     font-size: 32px; } }
 
 .header.animate {
-  top: -160px; }
+  -webkit-transform: translate(0, -100px);
+      -ms-transform: translate(0, -100px);
+          transform: translate(0, -100px); }
 
 .header {
   top: 0px;
   -webkit-transition: .5s;
   -o-transition: .5s;
-  transition: .5s; }
+  transition: .5s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 /*menu*/
 .menu-l {
@@ -3756,14 +3761,18 @@ h1 {
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
-  -webkit-transition-delay: .5s;
-       -o-transition-delay: .5s;
-          transition-delay: .5s; }
+  -webkit-transition-delay: .4s;
+       -o-transition-delay: .4s;
+          transition-delay: .4s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 .main-page__header.animate {
   opacity: 0;
-  margin-top: 100px;
-  padding-top: 20px; }
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px); }
 
 /*image*/
 .main-page__bg {
@@ -3782,7 +3791,10 @@ h1 {
   -webkit-transition-delay: .7s;
        -o-transition-delay: .7s;
           transition-delay: .7s;
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 .main-page__info.animate, .main-page__quastions.animate {
   -webkit-transition: .3s;
@@ -3791,7 +3803,9 @@ h1 {
   -webkit-transition-delay: .7s;
        -o-transition-delay: .7s;
           transition-delay: .7s;
-  padding-top: 20px;
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px);
   opacity: 0; }
 
 /*btn*/
@@ -3802,24 +3816,31 @@ h1 {
   transition: .5s;
   -webkit-transition-delay: .9s;
        -o-transition-delay: .9s;
-          transition-delay: .9s; }
+          transition-delay: .9s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 .main-page__btn.animate {
-  padding-top: 20px;
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px); }
 
 /*list*/
 .main-page__list-item {
-  right: 0px;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
   opacity: 1;
-  -webkit-transition: .4s;
-  -o-transition: .4s;
-  transition: .4s; }
+  -webkit-transition: .7s;
+  -o-transition: .7s;
+  transition: .7s; }
 
 .main-page__list-item:first-child {
-  -webkit-transition-delay: 1.4s;
-       -o-transition-delay: 1.4s;
-          transition-delay: 1.4s; }
+  -webkit-transition-delay: 1.0s;
+       -o-transition-delay: 1.0s;
+          transition-delay: 1.0s; }
 
 .main-page__list-item:nth-child(2) {
   -webkit-transition-delay: 1.2s;
@@ -3827,10 +3848,200 @@ h1 {
           transition-delay: 1.2s; }
 
 .main-page__list-item:nth-child(3) {
-  -webkit-transition-delay: 1s;
-       -o-transition-delay: 1s;
-          transition-delay: 1s; }
+  -webkit-transition-delay: 1.4s;
+       -o-transition-delay: 1.4s;
+          transition-delay: 1.4s; }
 
 .main-page__list.animate .main-page__list-item {
   opacity: 0;
-  right: -150px; }
+  -webkit-transform: translate(150px, 0);
+      -ms-transform: translate(150px, 0);
+          transform: translate(150px, 0); }
+
+/*services header*/
+.services__header {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s; }
+
+.services__header.animate {
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px);
+  opacity: 0; }
+
+/*services list*/
+.services__list .services__item {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1;
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s; }
+
+.services__list.animate .services__item {
+  -webkit-transform: translate(0, 40px);
+      -ms-transform: translate(0, 40px);
+          transform: translate(0, 40px);
+  opacity: 0; }
+
+.services__item:nth-child(1) {
+  -webkit-transition-delay: .5s;
+       -o-transition-delay: .5s;
+          transition-delay: .5s; }
+
+.services__item:nth-child(2) {
+  -webkit-transition-delay: .7s;
+       -o-transition-delay: .7s;
+          transition-delay: .7s; }
+
+.services__item:nth-child(3) {
+  -webkit-transition-delay: .9s;
+       -o-transition-delay: .9s;
+          transition-delay: .9s; }
+
+.services__item:nth-child(4) {
+  -webkit-transition-delay: 1.1s;
+       -o-transition-delay: 1.1s;
+          transition-delay: 1.1s; }
+
+.services__item:nth-child(5) {
+  -webkit-transition-delay: 1.3s;
+       -o-transition-delay: 1.3s;
+          transition-delay: 1.3s; }
+
+.services__item:nth-child(6) {
+  -webkit-transition-delay: 1.5s;
+       -o-transition-delay: 1.5s;
+          transition-delay: 1.5s; }
+
+/*service bg*/
+.services__bg {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  opacity: 1; }
+
+.services__bg.animate {
+  -webkit-transform: translate(1000px, 0);
+      -ms-transform: translate(1000px, 0);
+          transform: translate(1000px, 0);
+  opacity: 0; }
+
+/*questions*/
+.questions__bg {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  opacity: 1; }
+
+.questions__bg.animate {
+  opacity: 0; }
+
+.questions__header {
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
+
+.questions__header.animate {
+  opacity: 0;
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px); }
+
+.questions__list {
+  -webkit-transition-delay: .5s;
+       -o-transition-delay: .5s;
+          transition-delay: .5s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.questions__list.animate {
+  opacity: 0;
+  -webkit-transform: translate(0, 500px);
+      -ms-transform: translate(0, 500px);
+          transform: translate(0, 500px); }
+
+.questions__form {
+  -webkit-transition-delay: .5s;
+       -o-transition-delay: .5s;
+          transition-delay: .5s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.questions__form.animate {
+  opacity: 0;
+  -webkit-transform: translate(500px, 0);
+      -ms-transform: translate(500px, 0);
+          transform: translate(500px, 0); }
+
+/*contacts*/
+.contacts__bg {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.contacts__bg.animate {
+  -webkit-transform: translate(100px, 0);
+      -ms-transform: translate(100px, 0);
+          transform: translate(100px, 0);
+  opacity: 0; }
+
+.contacts__header {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.contacts__header.animate {
+  -webkit-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+          transform: translate(0, 100px);
+  opacity: 0; }
+
+.contacts__adress, .contacts__mail, .contacts__row, .contacts__time, .contacts__req {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: .3s;
+       -o-transition-delay: .3s;
+          transition-delay: .3s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1; }
+
+.contacts__adress.animate, .contacts__mail.animate, .contacts__row.animate, .contacts__time.animate, .contacts__req.animate {
+  -webkit-transform: translate(0, 150px);
+      -ms-transform: translate(0, 150px);
+          transform: translate(0, 150px);
+  opacity: 0; }

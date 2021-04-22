@@ -240,6 +240,7 @@ function animate() {
 
     animBlocks.forEach(item => {
         item.classList.remove('animate');
+        console.log('anim');
     });
 }
 
@@ -250,9 +251,12 @@ function goodAddCart() {
     // }
 }
 document.addEventListener('DOMContentLoaded', () => {
+
     sliders();
+
     cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
     cartMenuHideShow('.cart', '.cart__close', '.header__cart');
+
     showQuastions();
     createMap();
     sidebarFix();
@@ -260,6 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
     goodsOpen();
     goodAddCart();
     animate();
+
+
+
+
 });
 
+window.onload = function () {
 
+}
