@@ -239,7 +239,7 @@ function animate() {
     let animBlocks = document.querySelectorAll('.animate');
     let animOnce = document.querySelectorAll('.animate_once');
 
-    if (window.innerWidth >= 1280 && animOnce.length > 0) {
+    if (animOnce.length > 0) {
         if (getCookie('visit') == 'yes') {
             animOnce.forEach(item => {
                 item.style.transition = "transform 0s, opacity .2s";
@@ -261,7 +261,7 @@ function animate() {
     }
 
 
-    if (window.innerWidth >= 1280 && animBlocks.length > 0) {
+    if (animBlocks.length > 0) {
         animBlocks.forEach(item => {
             item.classList.remove('animate');
 

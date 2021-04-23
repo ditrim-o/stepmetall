@@ -3752,11 +3752,15 @@ h1 {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
-  right: 0px;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
   opacity: 1; }
 
 .menu-l.animate_once {
-  left: -225px;
+  -webkit-transform: translate(-250px, 0);
+      -ms-transform: translate(-250px, 0);
+          transform: translate(-250px, 0);
   opacity: 0; }
 
 .animate_none {
@@ -3791,10 +3795,15 @@ h1 {
 .main-page__bg {
   -webkit-transition: .5s;
   -o-transition: .5s;
-  transition: .5s; }
+  transition: .5s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0); }
 
 .main-page__bg.animate {
-  right: -1000px; }
+  -webkit-transform: translate(1000px, 0);
+      -ms-transform: translate(1000px, 0);
+          transform: translate(1000px, 0); }
 
 /*text*/
 .main-page__info, .main-page__quastions {
@@ -4058,3 +4067,13 @@ h1 {
       -ms-transform: translate(0, 150px);
           transform: translate(0, 150px);
   opacity: 0; }
+
+@media (max-width: 1279px) {
+  .animate, .animate_once, .animate .services__item, .animate .main-page__list-item {
+    opacity: 1 !important;
+    -webkit-transform: translate(0, 0) !important;
+        -ms-transform: translate(0, 0) !important;
+            transform: translate(0, 0) !important;
+    -webkit-transition: 0s;
+    -o-transition: 0s;
+    transition: 0s; } }
