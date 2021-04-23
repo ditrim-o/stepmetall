@@ -3731,10 +3731,11 @@ h1 {
   .catalog__header {
     font-size: 32px; } }
 
-.header.animate {
+.header.animate_once {
   -webkit-transform: translate(0, -100px);
       -ms-transform: translate(0, -100px);
-          transform: translate(0, -100px); }
+          transform: translate(0, -100px);
+  opacity: 0; }
 
 .header {
   top: 0px;
@@ -3743,17 +3744,29 @@ h1 {
   transition: .5s;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
-          transform: translate(0, 0); }
+          transform: translate(0, 0);
+  opacity: 1; }
 
 /*menu*/
 .menu-l {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
-  right: 0px; }
+  right: 0px;
+  opacity: 1; }
 
-.menu-l.animate {
-  left: -225px; }
+.menu-l.animate_once {
+  left: -225px;
+  opacity: 0; }
+
+.animate_none {
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  left: 0px; }
 
 /*h1*/
 .main-page__header {

@@ -237,23 +237,56 @@ function goodsOpen() {
 
 function animate() {
     let animBlocks = document.querySelectorAll('.animate');
+    let animOnce = document.querySelectorAll('.animate_once');
 
-    animBlocks.forEach(item => {
-        item.classList.remove('animate');
-        console.log('anim');
-    });
+    if (window.innerWidth >= 1280 && animOnce.length > 0) {
+        if (getCookie('visit') == 'yes') {
+            animOnce.forEach(item => {
+                item.style.transition = "transform 0s, opacity .2s";
+                item.style.left = "0px";
+                item.style.transform = "translate(0 , 0)";
+                item.classList.remove('animate_once');
+
+            });
+
+        }
+        else {
+            animOnce.forEach(item => {
+                item.classList.remove('animate_once');
+
+            });
+            setCookies('visit', 'yes');
+        }
+
+    }
+
+
+    if (window.innerWidth >= 1280 && animBlocks.length > 0) {
+        animBlocks.forEach(item => {
+            item.classList.remove('animate');
+
+        });
+
+    }
+}
+
+/*cookie*/
+function setCookies(name, value) {
+    document.cookie = `${name}=${value}; path=/`;
+}
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 
-function goodAddCart() {
-    // document.querySelector('.goods__add-btn').onclick = function () {
-    //     this.classList.toggle('added');
-    // }
-}
+// document.querySelector('.goods__add-btn').onclick = function () {
+//     this.classList.toggle('added');
+// }
+
 document.addEventListener('DOMContentLoaded', () => {
-
-
-
 
     sliders();
 
@@ -265,9 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebarFix();
     formOpen();
     goodsOpen();
-    goodAddCart();
+    //goodAddCart();
 
-
+    setTimeout(() => { animate(); }, 10);
 
 
 
@@ -275,5 +308,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = function () {
-    animate();
+    //animate();
 }

@@ -1,5 +1,6 @@
-.header.animate{
+.header.animate_once{
     transform: translate(0 , -100px);
+    opacity: 0;
     
     
 }
@@ -7,14 +8,22 @@
     top: 0px;
     transition: .5s;
     transform: translate(0 , 0);
+    opacity: 1;
 }
 /*menu*/
 .menu-l{
     transition: .5s;
     right: 0px;
+    opacity: 1;
 }
-.menu-l.animate{
+.menu-l.animate_once{
     left: -225px;
+    opacity: 0;
+}
+.animate_none{
+    transition: 0s;
+    transform: translate(0 , 0);
+    left: 0px;
 }
 /*h1*/
 .main-page__header{
