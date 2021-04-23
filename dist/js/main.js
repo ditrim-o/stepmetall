@@ -65,18 +65,36 @@ function cartMenuHideShow(el, close, open) {
     let item = document.querySelector(el);
     body.addEventListener('click', (e) => {
 
-        if (e.target.closest(open)) {
+        if (open != "" && e.target.closest(open)) {
             item.classList.add('active');
-            scrollHide('hide')
+            scrollHide('hide');
+
+            if (el != '.popup-menu') {
+                shadowShow(true);
+            }
         }
 
         else if (e.target.closest(close) || (!e.target.closest(el) && item.classList.contains('active'))) {
             item.classList.remove('active');
             scrollHide('show');
+            if (el != '.popup-menu') {
+                shadowShow(false);
+            }
         }
 
     });
 }
+/*shadow*/
+function shadowShow(cond) {
+    let shadow = document.querySelector('.shadow');
+
+    if (cond) {
+        shadow.classList.add('active');
+    }
+    else shadow.classList.remove('active');
+}
+
+
 /*hide page scroll*/
 function scrollHide(inf) {
     var html = document.getElementsByTagName('html')[0];
@@ -269,7 +287,21 @@ function animate() {
 
     }
 }
+/*question form*/
+function questionOpen() {
+    let form = document.querySelector('.question__form');
+    let close = document.querySelector('.question__close');
+    let body = document.querySelector('body');
 
+    body.addEventListener('click', (e) => {
+        if (e.target.closest('.menu-l__question-link')) {
+            form.classList.add('active');
+        }
+        else if (e.target.closest('.question__close') || (form.classList.contains('active') && !e.target.closest(".question__form"))) {
+            form.classList.remove('active');
+        }
+    });
+}
 /*cookie*/
 function setCookies(name, value) {
     document.cookie = `${name}=${value}; path=/`;
@@ -292,7 +324,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
     cartMenuHideShow('.cart', '.cart__close', '.header__cart');
-
+    cartMenuHideShow('.callback-form', '.callback-form__close', '.open-popup');
+    cartMenuHideShow('.success', '.success__close', '');
+    questionOpen();
     showQuastions();
     createMap();
     sidebarFix();

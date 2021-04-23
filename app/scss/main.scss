@@ -160,6 +160,13 @@ a, a:hover{
         box-shadow: none;
     }
 }
+.bg_blue:disabled{
+    background: #C4C4C4;
+    box-shadow: 0px 35px 43px -22px rgba(153, 153, 153, 0.4);
+    &:hover{
+        background: #C4C4C4;
+    }
+}
 body{
     background-color: #F6F6F6;
     max-width: 100%;
@@ -435,5 +442,8 @@ textarea::placeholder{
 @import "../blocks/offers/offers.scss";
 @import "../blocks/sidebar/sidebar.scss";
 @import "../blocks/catalog/catalog.scss";
+@import "../blocks/popup/shadow.scss";
+@import "../blocks/popup/callback-form.scss";
+@import "../blocks/popup/success.scss";
 
 @import "../blocks/animate/animate.scss";

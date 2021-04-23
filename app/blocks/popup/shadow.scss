@@ -1,0 +1,17 @@
+.shadow{
+    opacity: 0;
+    background-color: black;
+    width: 0%;
+    height: 100%;
+    position: fixed;
+    top: -9999px;
+    left: 0px;
+    z-index: 9;
+    transition: opacity .5s;
+}
+.shadow.active{
+    opacity: 0.2;
+    top: 0px;
+    width: 100%;
+    
+}

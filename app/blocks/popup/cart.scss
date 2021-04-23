@@ -8,7 +8,8 @@
     padding: 39px 0 100px 0;
     box-sizing: border-box;
     max-height: 100vh;
-    overflow-y: scroll;
+    
+    overflow-y: auto;
     transition: .4s;
     &.active{
         right: 0px;

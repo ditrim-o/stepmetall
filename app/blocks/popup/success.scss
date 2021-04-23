@@ -1,0 +1,51 @@
+.success{
+    position: fixed;
+    left: 9999px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 550px;
+    max-width: 100%;
+    text-align: center;
+    transition: opacity .3s;
+    opacity: 0;
+    &.active{
+        opacity: 1;
+        left: 50%;
+        transition: opacity .3s;
+    }
+    &.subscribe{
+        padding-top: 34px;
+    }
+    &_order{
+        padding: 83px 0 62px;
+    }
+    &__icon{
+        height: 30px;
+        width: 49px;
+        margin: 0 auto 30px;
+        display: block;
+    }
+    &__header{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+
+    }
+    &__text{
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 11px;
+    }
+    &__close{
+        color:#0561FC;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: underline;
+        margin-bottom: 30px;
+    }
+    &__img{
+        width: 100%;
+        object-fit: cover;
+    }
+}

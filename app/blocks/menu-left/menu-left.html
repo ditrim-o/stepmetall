@@ -26,22 +26,38 @@
             <div class="hr"></div>
         </li>
         <li class="menu-l__links-item">
-            <a href="#" class="menu-l__link">
+            <button class="menu-l__link open-popup" type="button">
                 <svg class="menu-l__links-img">
                     <use xlink:href="img/sprite/sprite.svg#callback"></use>
                 </svg>
                 <span class="menu-l__links-text">Связаться</span>
-            </a>
+            </button>
         </li>
 
     </ul>
-    <div class="menu-l__quastion">
+    <div class="menu-l__question">
         <div class="hr"></div>
-        <a href="" class="menu-l__quastion-link">
-            <svg class="menu-l__quastion-icon">
+        <button class="menu-l__question-link" type="button">
+            <svg class="menu-l__question-icon">
                 <use xlink:href="img/sprite/sprite.svg#qest"></use>
             </svg>
-            <span class="menu-l__quastion-text">Задать вопрос</span>
-        </a>
+            <span class="menu-l__question-text">Задать вопрос</span>
+        </button>
+        <form action="" class="question__form">
+            <button type="button" class="question__close"> <span class="close-icon"></span></button>
+            <div class="question__form-fields">
+                <div class="form-input question__form-input">
+                    <input type="text" class="input question__input" placeholder="Телефон">
+                </div>
+                <div class="form-input question__form-input">
+                    <input type="text" class="input question__input" placeholder="Что Вас интересует?">
+                </div>
+                <button type="submit" class="question__form-submit">
+                    <svg class="question__form-submit-icon">
+                        <use xlink:href="img/sprite/sprite.svg#arrow"></use>
+                    </svg>
+                </button>
+            </div>
+        </form>
     </div>
 </div>
