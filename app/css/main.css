@@ -4029,9 +4029,9 @@ h1 {
   opacity: 0; }
 
 .contacts__adress, .contacts__mail, .contacts__row, .contacts__time, .contacts__req {
-  -webkit-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
+  -webkit-transition: .7s;
+  -o-transition: .7s;
+  transition: .7s;
   -webkit-transition-delay: .3s;
        -o-transition-delay: .3s;
           transition-delay: .3s;
