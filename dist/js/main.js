@@ -252,6 +252,9 @@ function goodAddCart() {
 }
 document.addEventListener('DOMContentLoaded', () => {
 
+
+
+
     sliders();
 
     cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
@@ -263,7 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formOpen();
     goodsOpen();
     goodAddCart();
-    animate();
+
+
 
 
 
@@ -271,5 +275,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = function () {
-
+    animate();
 }
