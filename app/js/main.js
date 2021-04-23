@@ -74,7 +74,7 @@ function cartMenuHideShow(el, close, open) {
             }
         }
 
-        else if (e.target.closest(close) || (!e.target.closest(el) && item.classList.contains('active'))) {
+        else if (e.target.closest(close) || (!e.target.closest(el) && item.classList.contains('active') && !e.target.closest('.cart__delete'))) {
             item.classList.remove('active');
             scrollHide('show');
             if (el != '.popup-menu') {
@@ -207,18 +207,8 @@ function sidebarFix() {
                     else return
 
                 }
-                // else {
-                //     if (barClass != 'fixed') {
-                //         bar.classList.add('fixed');
-                //         bar.classList.remove('top');
-                //         bar.classList.remove('bottom');
-                //         barClass = 'fixed';
-                //         console.log('fixed');
-                //     }
-                //     else return
-                // }
 
-            }  //console.log(top, bottom);
+            }
         }
     }
 
@@ -314,9 +304,159 @@ function getCookie(name) {
 }
 
 
-// document.querySelector('.goods__add-btn').onclick = function () {
-//     this.classList.toggle('added');
-// }
+/*загружаем данные в localstorage*/
+function addToLocal() {
+    let body = document.querySelector('body');
+
+    body.addEventListener('click', (e) => {
+
+        if (e.target.closest('.goods__add-btn')) {
+            let button = e.target.closest('.goods__add-btn');
+            if (!button.classList.contains('added')) {
+
+                let category = button.getAttribute('data-category');
+                let name = button.getAttribute('data-name');
+                let id = button.getAttribute('data-id');
+                let unit = button.getAttribute('data-unit');
+                let count = 1;
+
+                var items = JSON.parse(localStorage.getItem('item'));
+                if (items == null) {
+                    items = {};
+                }
+
+                items[id] = {
+                    cat: category,
+                    name: name,
+                    unit: unit,
+                    count: count
+                }
+
+                localStorage.setItem('item', JSON.stringify(items));
+                button.classList.add('added');
+                addToCart();
+            }
+        }
+    });
+}
+
+/*refresh add btn*/
+function refreshButtons() {
+
+    let btns = document.querySelectorAll('.goods__add-btn');
+
+    if (btns.length > 0) {
+        let loc = JSON.parse(localStorage.getItem('item'));
+
+        if (loc) {
+            btns.forEach(item => {
+                let id = item.getAttribute('data-id');
+                if (loc[id]) {
+                    item.classList.add('added');
+                }
+                else {
+                    item.classList.remove('added');
+                }
+            });
+        }
+        else {
+            btns.forEach(item => {
+                item.classList.remove('added');
+            });
+        }
+    }
+}
+
+
+/*add to cart*/
+
+function addToCart() {
+    let cart = JSON.parse(localStorage.getItem('item'));
+
+    if (cart) {
+        let giftPromise = document.querySelector('.gift-promise');
+        let gift = document.querySelector('.gift');
+        let container = document.querySelector('.cart__goods-list');
+
+        let cartLength = Object.keys(cart).length;
+
+        let quantity = 0;
+        let el = "";
+        for (let key in cart) {
+            quantity++;
+            let id = key;
+            let cat = cart[key].cat;
+            let name = cart[key].name;
+            let unit = cart[key].unit;
+            let count = cart[key].count;
+
+            el += `<li class="cart__goods-item" data-id="${id}"><span class="cart__good-num">${quantity}</span><span class="cart__good-category">${cat}</span><span class="cart__good-name">${name}</span><div class="cart__quantity"><input data-type="number" disabled class="cart__quantity-input" value="${count}" data-id="${id}"><buttonn class="cart__quantity-more" type="button"></buttonn><buttonn class="cart__quantity-less" type="button"></buttonn><span class="cart__quantity-type">${unit}</span></div><button class="cart__delete" type="button"><span class="close-icon"></span></button></li>`
+            if (quantity == 2 && cartLength == 2) {
+                el += giftPromise.innerHTML;
+
+            }
+            else if (quantity == 3 && cartLength >= 3) {
+                el += gift.innerHTML;
+                quantity++;
+            }
+
+        }
+
+        container.innerHTML = el;
+
+    }
+}
+
+/*cart Delete*/
+
+function cartDelIncrease() {
+    let cart = document.querySelector('.cart');
+
+    cart.addEventListener('click', e => {
+        if (e.target.closest('.cart__delete')) {
+            let id = e.target.closest('.cart__goods-item').getAttribute('data-id');
+            let items = JSON.parse(localStorage.getItem('item'));
+            delete items[id];
+            localStorage.setItem('item', JSON.stringify(items));
+            addToCart();
+            refreshButtons();
+        }
+        else if (e.target.closest('.cart__quantity-more')) {
+            let item = e.target.closest('.cart__goods-item');
+            let id = item.getAttribute('data-id');
+            let inp = item.querySelector('.cart__quantity-input');
+            val = +inp.value;
+            let items = JSON.parse(localStorage.getItem('item'));
+            inp.value = val + 1;
+
+            items[id].count = +inp.value;
+            localStorage.setItem('item', JSON.stringify(items));
+        }
+        else if (e.target.closest('.cart__quantity-less')) {
+            let item = e.target.closest('.cart__goods-item');
+            let id = item.getAttribute('data-id');
+            let inp = item.querySelector('.cart__quantity-input');
+            val = +inp.value;
+
+            if (val > 1) {
+                let items = JSON.parse(localStorage.getItem('item'));
+                inp.value = val - 1;
+                items[id].count = +inp.value;
+                localStorage.setItem('item', JSON.stringify(items));
+            }
+
+        }
+    });
+}
+
+function cartWork() {
+    addToLocal();
+    refreshButtons();
+    addToCart();
+    cartDelIncrease();
+}
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -332,7 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebarFix();
     formOpen();
     goodsOpen();
-    //goodAddCart();
+    cartWork();
+
 
     setTimeout(() => { animate(); }, 10);
 
