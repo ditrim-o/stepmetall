@@ -64,7 +64,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0;
-        transition: .4s;
+        transition: padding .4s, transform .4s, opacity .4s;
         position: relative;
         height: 0px;
         overflow: hidden;
