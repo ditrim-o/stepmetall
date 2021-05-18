@@ -3,6 +3,9 @@
         height: 100%;
         z-index: 2;
     }
+    &__bg{
+        max-height: 70%;
+    }
     &__header{
         font-size: 80px;
         line-height: 90px;

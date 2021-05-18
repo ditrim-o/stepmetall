@@ -8,10 +8,12 @@
             <span class="close-icon"></span>
         </button>
     </div>
-    <form action="" class="cart__form">
-        <div class="cart__goods">
-            <ul class="cart__goods-list">
-                <!-- <li class="cart__goods-item">
+    <div class="cart__goods">
+        <button class="cart__clear" type="button"><svg class="cart__clear-ico">
+                <use xlink:href="img/sprite/sprite.svg#bucket"></use>
+            </svg>Очистить корзину</button>
+        <ul class="cart__goods-list">
+            <!-- <li class="cart__goods-item">
                     <span class="cart__good-num">1.</span>
                     <span class="cart__good-category">Арматура</span>
                     <span class="cart__good-name">6А400С длина 6м</span>
@@ -24,75 +26,45 @@
                     <button class="cart__delete">
                         <span class="close-icon"></span>
                     </button>
-                </li>
-                <li class="cart__goods-item">
-                    <span class="cart__good-num">2.</span>
-                    <span class="cart__good-category">Арматура</span>
-                    <span class="cart__good-name">6А400С длина 6м</span>
-                    <div class="cart__quantity">
-                        <input type="number" class="cart__quantity-input" value="1">
-                        <button class="cart__quantity-more" type="button"></button>
-                        <button class="cart__quantity-less" type="button"></button>
-                        <span class="cart__quantity-type">тонн</span>
-                    </div>
-                    <button class="cart__delete">
-                        <span class="close-icon"></span>
-                    </button>
-                </li>
-                <li class="cart__goods-item">
-                    <span class="cart__good-num">3.</span>
-                    <span class="cart__good-category">Арматура</span>
-                    <span class="cart__good-name">6А400С длина 6м</span>
-                    <div class="cart__quantity">
-                        <input type="number" class="cart__quantity-input" value="1">
-                        <button class="cart__quantity-more" type="button"></button>
-                        <button class="cart__quantity-less" type="button"></button>
-                        <span class="cart__quantity-type">тонн</span>
-                    </div>
-                    <button class="cart__delete">
-                        <span class="close-icon"></span>
-                    </button>
                 </li> -->
+        </ul>
+    </div>
 
-            </ul>
+    <form class="cart__send-calc">
+        <h2 class="cart__send-calc-header">Все верно?<br>
+            Тогда отправьте свой номер телефона и мы оформим доствку на выгодных условиях</h2>
+        <div class="form-input__row cart__form-input-row">
+            <div class="form-input cart__form-input">
+                <label class="input-label">Имя</label>
+                <input type="text" class="input cart__input" placeholder="Имя">
+            </div>
+            <div class="form-input cart__form-input">
+                <label class="input-label">Телефон</label>
+                <input type="text" class="input cart__input" placeholder="Ваш телефон">
+            </div>
         </div>
+        <div class="cart__delivery">
+            <p class="cart__delivery-text">Как Вы хотите получить товар?</p>
+            <div class="cart__delivery-method">
+                <input type="radio" class="cart__delivery-radio" id='radio-delivery1' name="rad-delivery"
+                    value="Доставка">
+                <label for="radio-delivery1">Доставка</label>
 
-        <div class="cart__send-calc">
-            <h2 class="cart__send-calc-header">Все верно?<br>
-                Тогда отправьте свой номер телефона и мы оформим доствку на выгодных условиях</h2>
-            <div class="form-input__row cart__form-input-row">
-                <div class="form-input cart__form-input">
-                    <label class="input-label">Имя</label>
-                    <input type="text" class="input cart__input" placeholder="Имя">
-                </div>
-                <div class="form-input cart__form-input">
-                    <label class="input-label">Телефон</label>
-                    <input type="text" class="input cart__input" placeholder="Ваш телефон">
-                </div>
+                <input type="radio" class="cart__delivery-radio" id='radio-delivery2' name="rad-delivery"
+                    value="Самовывоз со склада">
+                <label for="radio-delivery2">Самовывоз со склада</label>
             </div>
-            <div class="cart__delivery">
-                <p class="cart__delivery-text">Как Вы хотите получить товар?</p>
-                <div class="cart__delivery-method">
-                    <input type="radio" class="cart__delivery-radio" id='radio-delivery1' name="rad-delivery"
-                        value="Доставка">
-                    <label for="radio-delivery1">Доставка</label>
-
-                    <input type="radio" class="cart__delivery-radio" id='radio-delivery2' name="rad-delivery"
-                        value="Самовывоз со склада">
-                    <label for="radio-delivery2">Самовывоз со склада</label>
-                </div>
-            </div>
-            <button class="cart__send-btn bg_blue" type="submit">Отправить на рассчет</button>
-            <span class="cart__policy">*Нажимая на кнопку Заказать продукцию, Вы соглашаетесь на обработку
-                персональных данных</span>
         </div>
-        <div class="cart__save">
-            <h2 class="cart__save-header">Еще не определились с выбором? Не страшно, Вы можете сохранить данную
-                корзину, отправив ее себе на почту, чтобы потом продолжить наполнение</h2>
-            <div class="cart__save-fields">
-                <input type="text" class="input cart__input" placeholder="Email">
-                <button class="cart__save-btn bg_blue" type="submit">Сохранить корзину</button>
-            </div>
+        <button class="cart__send-btn bg_blue" type="submit">Отправить на рассчет</button>
+        <span class="cart__policy">*Нажимая на кнопку Заказать продукцию, Вы соглашаетесь на обработку
+            персональных данных</span>
+    </form>
+    <form class="cart__save">
+        <h2 class="cart__save-header">Еще не определились с выбором? Не страшно, Вы можете сохранить данную
+            корзину, отправив ее себе на почту, чтобы потом продолжить наполнение</h2>
+        <div class="cart__save-fields">
+            <input type="text" class="input cart__input" placeholder="Email">
+            <button class="cart__save-btn bg_blue" type="submit">Сохранить корзину</button>
         </div>
     </form>
 </div>
@@ -102,7 +74,7 @@
     <div class="gift">
         <li class="cart__goods-item">
             <span class="cart__good-num">4.</span>
-            <div class="cart__present">
+            <div class="cart__present cart_gift">
                 <div class="cart__present-img">
                     <svg class="cart__present-ico">
                         <use xlink:href="img/sprite/sprite.svg#gift"></use>

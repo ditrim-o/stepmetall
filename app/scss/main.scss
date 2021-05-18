@@ -197,11 +197,15 @@ button:disabled{
 .form-input{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .input-label{
     font-size: 12px;
     font-weight: 300;
     margin-bottom: 9px;
+}
+input{
+    position: relative;
 }
 .input{
     background-color: #F6F6F6;
@@ -236,6 +240,22 @@ textarea::placeholder{
     font-size: 14px;
     font-weight: 300;
     color: #C4C4C4;
+}
+input.error{
+    border-color:#EC002A;
+}
+.error-text{
+    color:#EC002A;
+    font-size: 12px;
+    font-weight: 300;
+    display: none;
+    margin-top: 7px;
+    position: absolute;
+    left: 0px;
+    bottom: -18px;
+}
+.error+.error-text{
+    display: block;
 }
 .noscroll{
     overflow: hidden;
@@ -328,8 +348,12 @@ textarea::placeholder{
     height: calc(100vh - 118px);
     overflow: hidden;
 }
-.full+.footer{
+.footer_full{
     display: none;
+}
+.body_full{
+    overflow-y: hidden;
+    max-height: 100vh;
 }
 @media (max-width: 1360px){
 .full{
@@ -343,14 +367,22 @@ textarea::placeholder{
         min-height: calc(100vh - 165px);
         padding-bottom: 55px;
     }
-    .full+.footer{
+    .footer_full{
         display: block;
+    }
+    .body_full{
+        max-height: auto;
+        overflow-y: auto;
     }
     }
     @media(max-height:700px){
         .full{height: auto;
             min-height: calc(100vh - 78px);
-        padding-bottom: 55px;}
+            padding-bottom: 55px;}
+            .body_full{
+                max-height: auto;
+                overflow-y: auto;
+            }
         
     }
 @media(max-width:1600px){
@@ -448,5 +480,6 @@ textarea::placeholder{
 @import "../blocks/popup/shadow.scss";
 @import "../blocks/popup/callback-form.scss";
 @import "../blocks/popup/success.scss";
+@import "../blocks/popup/cart-added.scss";
 
 @import "../blocks/animate/animate.scss";

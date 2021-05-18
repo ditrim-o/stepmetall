@@ -8,12 +8,18 @@
         grid-template-columns: auto 430px;
         column-gap: 70px;
         margin-bottom: 76px;
+        
     }
     &__bg{
         position: absolute;
         top:0px;
         right: 0px;
         z-index: -1;
+        object-fit: contain;
+        width: 397px;
+        height: 298px;
+        object-position: top right;
+
     }
     &__header{
         font-size: 50px;
@@ -84,6 +90,9 @@
             top: 0px;
             z-index: -1;
         }
+        &.active:before{
+            background-color: #E3E3E3;
+        }
         &:hover:before{
             
            
@@ -98,8 +107,8 @@
         }
     }
     &__item.active &__sub-item{
-        padding-top: 36px;
-        padding-bottom: 36px;
+        padding-top: 18px;
+        padding-bottom: 28px;
         height: auto;
         opacity: 1;
         overflow: visible;
@@ -113,13 +122,25 @@
         font-size: 20px;
         font-weight: 300;
     }
+    &__category{
+        font-size: 14px;
+        font-weight: 300;
+        color:#C4C4C4;
+        margin-bottom: 10px;
+    }
     &__add-btn {
         width: 26px;
         height: 26px;
     }
+    &__add-btn:after, &__add-btn:before{
+        transition: 0s;
+    }
     &__add-btn.added:before{
         left: 100%;
         transform: translate(0, 0);
+        background-color:#0561FC;
+        width: 2px;
+        transition: .3s;
     }
     &__add-btn.added:after{
             width: 50%;
@@ -127,6 +148,9 @@
             right: 0px;
             bottom: 0%;
             transform: translate(0, 0);
+            background-color:#0561FC;
+            height: 2px;
+            transition: .3s;
     }
     &__add-btn.added.plus-icon{
         transform: rotate(45deg);
@@ -135,7 +159,7 @@
         position: relative;
         padding-top: 30px;
         padding-bottom: 45px;
-        background-image: url(../img/spec-bg.jpg);
+        //background-image: url(../img/spec-bg.jpg);
         background-size: cover;
         background-repeat: no-repeat; 
         //padding-left: 160px;       
@@ -176,6 +200,11 @@
     &__banner-container{
         padding-right: 0px;
     }
+   
+}
+.goods__container_spec .goods__item.active .goods__sub-item{
+    padding-top: 36px;
+    padding-bottom: 36px;
 }
 @media(max-width:1600px){
     .goods{
@@ -256,12 +285,16 @@
 
         }
         &__item.active &__sub-item{
-            padding-top: 28px;
-            padding-bottom: 24px;
+            padding-top: 14px;
+            padding-bottom: 20px;
         }
         &__utp{
             font-size: 22px;
         }
+    }
+    .goods__container_spec .goods__item.active .goods__sub-item{
+        padding-top: 28px;
+        padding-bottom: 24px;
     }
 }
 @media(max-width:340px){

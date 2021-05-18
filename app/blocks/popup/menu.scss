@@ -3,8 +3,8 @@
     padding: 59px 85px 46px 67px;
     width: 557px;
     position: fixed;
-    top: -1000px;
-    right: 0px;
+    top:0px;
+    right: -1000px;
     z-index: 10;
     box-sizing: border-box;
     max-height: 100vh;
@@ -13,7 +13,7 @@
     transition: .4s;
     opacity: 0;
     &.active{
-        top:0px;
+        right: 0px;
         opacity: 1;
     }
     &__close{

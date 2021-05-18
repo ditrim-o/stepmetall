@@ -65,7 +65,7 @@ function cartMenuHideShow(el, close, open) {
     let item = document.querySelector(el);
     body.addEventListener('click', (e) => {
 
-        if (open != "" && e.target.closest(open)) {
+        if (open != "" && e.target.closest(open) && e.target.closest(open).disabled == false) {
             item.classList.add('active');
             scrollHide('hide');
 
@@ -302,25 +302,36 @@ function getCookie(name) {
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-
+function footerHide() {
+    let pageFull = document.querySelector('.full');
+    if (pageFull) {
+        let footer = document.querySelector('.footer');
+        footer.classList.add('footer_full');
+        document.querySelector('body').classList.add('body_full');
+    }
+}
 
 /*загружаем данные в localstorage*/
 function addToLocal() {
     let body = document.querySelector('body');
+    let addPopup = document.querySelector('.cart-add');
 
     body.addEventListener('click', (e) => {
 
         if (e.target.closest('.goods__add-btn')) {
             let button = e.target.closest('.goods__add-btn');
+            let elem = e.target.closest('.goods__sub-item');
+
+            let category = button.getAttribute('data-category');
+            let name = button.getAttribute('data-name');
+            let id = button.getAttribute('data-id');
+            let unit = button.getAttribute('data-unit');
+            let count = 1;
+
+            var items = JSON.parse(localStorage.getItem('item'));
+
             if (!button.classList.contains('added')) {
 
-                let category = button.getAttribute('data-category');
-                let name = button.getAttribute('data-name');
-                let id = button.getAttribute('data-id');
-                let unit = button.getAttribute('data-unit');
-                let count = 1;
-
-                var items = JSON.parse(localStorage.getItem('item'));
                 if (items == null) {
                     items = {};
                 }
@@ -334,7 +345,20 @@ function addToLocal() {
 
                 localStorage.setItem('item', JSON.stringify(items));
                 button.classList.add('added');
+                elem.classList.add('active');
+                addPopup.classList.add('active');
+                setTimeout(() => {
+                    addPopup.classList.remove('active');
+                }, 2000);
                 addToCart();
+            }
+            else {
+                delete items[id];
+                button.classList.remove('added');
+                elem.classList.remove('active');
+                localStorage.setItem('item', JSON.stringify(items));
+                addToCart();
+
             }
         }
     });
@@ -353,15 +377,18 @@ function refreshButtons() {
                 let id = item.getAttribute('data-id');
                 if (loc[id]) {
                     item.classList.add('added');
+                    item.parentNode.classList.add('active');
                 }
                 else {
                     item.classList.remove('added');
+                    item.parentNode.classList.remove('active');
                 }
             });
         }
         else {
             btns.forEach(item => {
                 item.classList.remove('added');
+                item.parentNode.classList.remove('active');
             });
         }
     }
@@ -375,10 +402,11 @@ function addToCart() {
 
     if (cart) {
         let giftPromise = document.querySelector('.gift-promise');
-        let gift = document.querySelector('.gift');
+        let gift = document.querySelector('.cart_gift');
         let container = document.querySelector('.cart__goods-list');
-
+        let cartBtn = document.querySelector('.header__cart');
         let cartLength = Object.keys(cart).length;
+        let cartBlock = document.querySelector('.cart');
 
         let quantity = 0;
         let el = "";
@@ -390,15 +418,29 @@ function addToCart() {
             let unit = cart[key].unit;
             let count = cart[key].count;
 
-            el += `<li class="cart__goods-item" data-id="${id}"><span class="cart__good-num">${quantity}</span><span class="cart__good-category">${cat}</span><span class="cart__good-name">${name}</span><div class="cart__quantity"><input data-type="number" disabled class="cart__quantity-input" value="${count}" data-id="${id}"><buttonn class="cart__quantity-more" type="button"></buttonn><buttonn class="cart__quantity-less" type="button"></buttonn><span class="cart__quantity-type">${unit}</span></div><button class="cart__delete" type="button"><span class="close-icon"></span></button></li>`
+            el += `<li class="cart__goods-item" data-id="${id}"><span class="cart__good-num">${quantity}.</span><span class="cart__good-category">${cat}</span><span class="cart__good-name">${name}</span><div class="cart__quantity"><input data-type="number" disabled class="cart__quantity-input" value="${count}" data-id="${id}"><buttonn class="cart__quantity-more" type="button"></buttonn><buttonn class="cart__quantity-less" type="button"></buttonn><span class="cart__quantity-type">${unit}</span></div><button class="cart__delete" type="button"><span class="close-icon"></span></button></li>`
             if (quantity == 2 && cartLength == 2) {
                 el += giftPromise.innerHTML;
 
             }
-            else if (quantity == 3 && cartLength >= 3) {
-                el += gift.innerHTML;
-                quantity++;
+            else if (quantity == cartLength && cartLength >= 3) {
+                el += `<li class="cart__goods-item"><span class="cart__good-num">${quantity + 1}.</span>${gift.innerHTML}</li>`;
+
             }
+
+        }
+        if (cartLength > 0) {
+
+            cartBtn.disabled = false;
+        }
+        else {
+            cartBtn.disabled = true;
+            setTimeout(() => {
+                cartBlock.classList.remove('active');
+                shadowShow(false);
+                scrollHide('show');
+
+            }, 300);
 
         }
 
@@ -407,15 +449,22 @@ function addToCart() {
     }
 }
 
+
+
 /*cart Delete*/
 
 function cartDelIncrease() {
     let cart = document.querySelector('.cart');
 
+
+
     cart.addEventListener('click', e => {
+
+        let items = JSON.parse(localStorage.getItem('item'));
+
         if (e.target.closest('.cart__delete')) {
             let id = e.target.closest('.cart__goods-item').getAttribute('data-id');
-            let items = JSON.parse(localStorage.getItem('item'));
+
             delete items[id];
             localStorage.setItem('item', JSON.stringify(items));
             addToCart();
@@ -426,7 +475,7 @@ function cartDelIncrease() {
             let id = item.getAttribute('data-id');
             let inp = item.querySelector('.cart__quantity-input');
             val = +inp.value;
-            let items = JSON.parse(localStorage.getItem('item'));
+
             inp.value = val + 1;
 
             items[id].count = +inp.value;
@@ -439,12 +488,21 @@ function cartDelIncrease() {
             val = +inp.value;
 
             if (val > 1) {
-                let items = JSON.parse(localStorage.getItem('item'));
+
                 inp.value = val - 1;
                 items[id].count = +inp.value;
                 localStorage.setItem('item', JSON.stringify(items));
             }
 
+        }
+        else if (e.target.closest('.cart__clear')) {
+            for (let key in items) {
+                delete items[key];
+            }
+            localStorage.setItem('item', JSON.stringify(items));
+
+            refreshButtons();
+            addToCart();
         }
     });
 }
@@ -465,7 +523,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cartMenuHideShow('.popup-menu', '.popup-menu__close', '.header__popup-menu-open');
     cartMenuHideShow('.cart', '.cart__close', '.header__cart');
     cartMenuHideShow('.callback-form', '.callback-form__close', '.open-popup');
-    cartMenuHideShow('.success', '.success__close', '');
+    cartMenuHideShow('.subscribe', '.success__close', '');
+    cartMenuHideShow('.success_order', '.success__close', '');
+    cartMenuHideShow('.error-message', '.success__close', '');
     questionOpen();
     showQuastions();
     createMap();
@@ -473,15 +533,97 @@ document.addEventListener('DOMContentLoaded', () => {
     formOpen();
     goodsOpen();
     cartWork();
+    footerHide();
 
 
     setTimeout(() => { animate(); }, 10);
-
-
+    inputmask();
 
 
 });
 
 window.onload = function () {
     //animate();
+}
+
+
+
+
+
+
+
+
+
+function setCaretPosition(e, t) {
+    if (e.setSelectionRange) e.focus(), e.setSelectionRange(t, t);
+    else if (e.createTextRange) {
+        var i = e.createTextRange();
+        i.collapse(!0), i.moveEnd("character", t), i.moveStart("character", t), i.select()
+    }
+}
+
+function getCursorPosition(e) {
+    var t = 0;
+    if (document.selection) {
+        e.focus();
+        var i = document.selection.createRange();
+        i.moveStart("character", -e.value.length), t = i.text.length
+    } else (e.selectionStart || "0" == e.selectionStart) && (t = e.selectionStart);
+    return t
+}
+
+function inputmask() {
+
+    $('input[type="tel"]').focus(function () {
+        if ($(this).val() == "") {
+            $(this).val('+7 (');
+        }
+
+        setCaretPosition(this, 4);
+    });
+
+    $('input[type="tel"]').focusout(function () {
+        $(this).mask("+7 (000) 000-00-00", {
+            clearIfNotMatch: true
+        });
+    });
+
+    $('input[type="tel"]').bind("change keyup input click", function () {
+
+        if (getCursorPosition(this) < 4) {
+            setCaretPosition(this, 4);
+        }
+
+        var num = $(this).val().replace(/\D+/g, "");
+
+        if (num.indexOf("789") === 0 || num.indexOf("77") === 0 || num.indexOf("89") === 0 || num === "" || num === "7") {
+
+            if (num.indexOf("789") === 0 || num.indexOf("77") === 0) {
+                num = num.substr(2 - num.length, num.length - 2);
+            }
+
+            if (num.indexOf("89") === 0) {
+                num = num.substr(1 - num.length, num.length - 1);
+            }
+
+            if (num === "7") {
+                num = "";
+            }
+
+            num = "+7 (" + num;
+            $(this).val(num);
+            $(this).mask("+7 (000) 000-00-00", {
+                clearIfNotMatch: true
+            });
+            var b = $(this).val();
+            $(this).val(b);
+        }
+
+
+    });
+
+    $('input[type="tel"]').mask("+7 (000) 000-00-00", {
+        clearIfNotMatch: true
+    });
+
 }

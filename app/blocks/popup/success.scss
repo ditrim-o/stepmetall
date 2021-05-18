@@ -13,6 +13,7 @@
         opacity: 1;
         left: 50%;
         transition: opacity .3s;
+        z-index: 20;
     }
     &.subscribe{
         padding-top: 34px;
@@ -48,4 +49,7 @@
         width: 100%;
         object-fit: cover;
     }
+}
+.error-message{
+    padding-top:20px;
 }

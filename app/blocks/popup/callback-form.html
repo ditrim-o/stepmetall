@@ -1,4 +1,4 @@
-<form action="" class="callback-form">
+<form action="" method="POST" class="callback-form form_not-valide">
     <div class="callback-form__header">
         <h3 class="callback-form__title">Связаться с нами</h3>
         <button class="callback-form__close" type="button"><span class="close-icon"></span></button>
@@ -10,12 +10,12 @@
             <input type="text" class="input callback-form__input" placeholder="Имя">
         </div>
         <div class="form-input callback-form__form-input">
-            <input type="text" class="input callback-form__input" placeholder="Телефон">
+            <input type="tel" class="input callback-form__input required" placeholder="Телефон">
         </div>
         <div class="form-input callback-form__form-input">
             <input type="text" class="input callback-form__input" placeholder="e-mail">
         </div>
-        <button class="callback-form__send-btn bg_blue" disabled type="submit">Отправить</button>
+        <button class="callback-form__send-btn bg_blue" type="button">Отправить</button>
     </div>
     <p class="callback-form__notice">*Нажимая на кнопку Отправить, Вы соглашаетесь на обработку персональных данных</p>
 </form>

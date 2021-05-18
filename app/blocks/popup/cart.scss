@@ -31,7 +31,7 @@
         line-height: 68px;
     }
     &__goods{
-        padding: 50px 57px 50px 80px;
+        padding: 45px 57px 50px 80px;
         border-bottom: 1px solid #C4C4C4;
     }
     &__goods-list{
@@ -283,6 +283,23 @@
     }
     &__logo{
         display: none;
+    }
+    &__clear{
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: underline;
+        margin-bottom: 40px;
+        padding: 9px 29px 11px 26px;
+        background-color: #F6F6F6;
+        border-radius: 61px;
+        display: flex;
+        align-items: center;
+      
+    }
+    &__clear-ico{
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
     }
 } 
 

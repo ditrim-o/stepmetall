@@ -9,7 +9,7 @@
                 <p class="footer__form-text">Подпишись на нашу рассылку, чтобы не пропустить наши акции и уникальные
                     предложения</p>
                 <form action="" class="footer__form">
-                    <input type="text" class="footer__inp" placeholder="Ваш e-mail">
+                    <input type="email" class="footer__inp" placeholder="Ваш e-mail">
                     <button type="submit" class="footer__form-submit">
                         <svg class="footer__form-submit-icon">
                             <use xlink:href="img/sprite/sprite.svg#arrow"></use>
@@ -56,5 +56,12 @@
 @@include("../popup/callback-form.html")
 @@include("../popup/subscribe-success.html")
 @@include("../popup/order-success.html")
+@@include("../popup/cart-added.html")
+<div class="success error-message">
+    <h3 class="success__header">Что-то пошло не так</h3>
+    <p class="success__text">Попробуйте позднее</p>
+    <button class="success__close" type="button">Все понятно. Закрыть</button>
+
+</div>
 <script src="js/libs.min.js"></script>
 <script src="js/main.js"></script>
