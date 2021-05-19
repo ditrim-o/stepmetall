@@ -221,7 +221,7 @@ function formOpen() {
     let fields = document.querySelector('.sidebar__fields');
     if (btn && fields) {
         btn.addEventListener('click', () => {
-            fields.classList.add('active');
+            fields.classList.toggle('active');
             sidebarFix();
         });
     }

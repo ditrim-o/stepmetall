@@ -131,6 +131,7 @@
     &__add-btn {
         width: 26px;
         height: 26px;
+        flex-shrink: 0;
     }
     &__add-btn:after, &__add-btn:before{
         transition: 0s;
@@ -199,6 +200,21 @@
     }
     &__banner-container{
         padding-right: 0px;
+    }
+    &__content-text{
+        max-width: 1280px;
+        margin-bottom: 30px;
+        & p{
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
+        & h2{
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 35px;
+        }
     }
    
 }

@@ -9,6 +9,8 @@
     padding: 45px 0 38px;
     transition: opacity .5s;
     opacity: 0;
+    max-height: 100vh;
+    overflow: auto;
 
     &.active{
         opacity: 1;
@@ -66,7 +68,9 @@
         font-weight: 400;
         color:#C4C4C4;
     }
-
+    &__textarea{
+        height: 80px;
+    }
 
 }
 @media(max-width:600px){
